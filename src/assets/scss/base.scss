@@ -1,0 +1,68 @@
+@use './init.scss';
+@use './var.scss' as *;
+@use './mixins.scss' as *;
+@use './function.scss' as *;
+@use './transition.scss';
+@use './config.scss' as *;
+
+:root {
+  @include set-css-var-value('colors', $colors);
+  @include set-css-var-value('text-color', $text-color);
+  @include set-css-var-value('font-family', $font-family);
+  @include set-css-var-value('font-size', $font-size);
+  @include set-css-var-value('bg-color', $bg-color);
+  @include set-css-var-value('border', $border);
+  @include set-css-var-value('border-radius', $border-radius);
+  @include set-css-var-value('box-shadow', $box-shadow);
+  @include set-css-var-value('transition-duration', $transition-duration);
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  color: getCssVar('text-color', 'primary');
+  background: getCssVar('bg-color', 'light');
+  font-size: getCssVar('font-size', 'base');
+  line-height: 1.5;
+  font-family: getCssVar('font-family');
+}
+
+/* 整根滚动条 */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+/* 滑块 */
+::-webkit-scrollbar-thumb {
+  background-color: getCssVar('text-color', 'disabled');
+  border-radius: 6px;
+}
+
+/* 轨道 */
+::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+/* 垂直和水平交汇处 */
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+a {
+  color: getCssVar('text-color', 'primary');
+}
+a:hover {
+  color: getCssVar('text-color', 'primary');
+  text-decoration: underline;
+}
+
+.#{$namespace}-mask-layer {
+  z-index: $zIndex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: getCssVar('bg-color', 'mask');
+}
