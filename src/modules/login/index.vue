@@ -15,7 +15,7 @@
         type="password"
         placeholder="请输入用户密码"
       ></bs-input>
-      <bs-button @click="onLogin">登录</bs-button>
+      <bs-button type="primary" @click="onLogin">登录</bs-button>
     </div>
   </div>
 </template>
