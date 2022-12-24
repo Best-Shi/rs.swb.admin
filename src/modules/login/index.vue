@@ -16,6 +16,7 @@
         placeholder="请输入用户密码"
       ></bs-input>
       <bs-button type="primary" @click="onLogin">登录</bs-button>
+      <bs-button @click="onToggle">展示</bs-button>
     </div>
   </div>
 </template>
@@ -35,6 +36,13 @@ const onLogin = async () => {
   }
   Bs.isAuthenticated = true;
   router.push('/');
+};
+
+const onToggle = () => {
+  Bs.MessageBox({
+    message: '啥打法上剪短发拉',
+    type: 'warning',
+  });
 };
 
 window.addEventListener('keydown', async e => {

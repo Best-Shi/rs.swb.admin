@@ -8,14 +8,10 @@ const bsConfig = {
     title: '系统提示',
     type: 'success',
     message: '',
-    confirm: {
-      show: true,
-      text: '确认',
-    },
-    cancel: {
-      show: true,
-      text: '取消',
-    },
+    confirmText: '确认',
+    confirmShow: true,
+    cancelText: '取消',
+    cancelShow: true,
     close: true,
   },
   message: {
