@@ -54,7 +54,8 @@ const router = useRouter();
 
 const tree = [];
 const temp = {};
-Bs.menuList.forEach(node => {
+const list = [];
+list.forEach(node => {
   temp[node.id] = {
     ...node,
     children: [],

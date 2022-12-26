@@ -24,18 +24,23 @@ function initRequestParams(params) {
   return data;
 }
 
+/**
+ * 用于发送 POST 请求。
+ * @param {string} url - 请求地址。
+ * @param {object} params - 用于请求的参数。
+ * @returns
+ */
 async function request(url, params) {
   return new Promise(resolve => {
     const req = initRequestParams(params);
     instance.post(url, req).then(result => {
       const res = result.data;
-
       const { body, header } = res;
       if (header.code === 200) {
         resolve(body);
       } else {
         if (header) {
-          Bs.MessageBox({ message: header.msg, type: 'error' });
+          Bs.messageBox({ message: header.msg, type: 'error' });
         }
         Promise.reject(false);
       }
