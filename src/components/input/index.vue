@@ -163,7 +163,6 @@ const onKeyDown = evt => {
   height: 32px;
   display: flex;
   align-items: center;
-  overflow: hidden;
   input {
     width: 100%;
     height: 100%;

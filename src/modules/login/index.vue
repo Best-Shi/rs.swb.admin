@@ -16,7 +16,6 @@
         placeholder="请输入用户密码"
       ></bs-input>
       <bs-button type="primary" @click="onLogin">登录</bs-button>
-      <bs-button @click="onToggle">展示</bs-button>
     </div>
   </div>
 </template>
@@ -34,15 +33,17 @@ const onLogin = async () => {
   if (!name.value || !password.value) {
     return;
   }
-  Bs.isAuthenticated = true;
-  router.push('/');
-};
-
-const onToggle = () => {
-  Bs.MessageBox({
-    message: '啥打法上剪短发拉',
-    type: 'warning',
+  const res = await Bs.http('/login', {
+    userName: name.value,
+    password: password.value,
   });
+
+  if (res) {
+    Bs.Authorization = res.author;
+    Bs.sessionStorage('author', res.author);
+    Bs.sessionStorage('userInfo', res.userInfo);
+    router.push('/');
+  }
 };
 
 window.addEventListener('keydown', async e => {

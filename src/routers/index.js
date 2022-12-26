@@ -68,7 +68,7 @@ const router = createRouter({
 
 // 登录权限
 router.beforeEach((to, from, next) => {
-  if (to.name !== 'Login' && !Bs.isAuthenticated) {
+  if (to.name !== 'Login' && !Bs.Authorization) {
     next({ name: 'Login' });
   } else if (to.name === 'Main') {
     next({ name: 'Home' });

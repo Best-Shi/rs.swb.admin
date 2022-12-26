@@ -129,7 +129,7 @@ export default defineComponent({
     box-sizing: border-box;
     background: getCssVar('bg-color', 'light');
     border-radius: getCssVar('border-radius', 'base');
-    padding: 26px 20px 16px 20px;
+    padding: 15px 20px 16px 20px;
     box-shadow: getCssVar('box-shadow');
     display: flex;
     flex-direction: column;
